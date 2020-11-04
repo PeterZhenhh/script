@@ -35,7 +35,7 @@ echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" | tee -a /etc/apt/sources.
 apt update && apt install caddy -y
 
 ## xcaddy build caddy with pulgin dns.providers.cloudflare
-wget -O - https://golang.org/dl/go1.14.6.linux-amd64.tar.gz | tar -xz -C /usr/local
+wget -O - https://golang.org/dl/go1.15.3.linux-amd64.tar.gz | tar -xz -C /usr/local
 URL="$(wget -qO- https://api.github.com/repos/caddyserver/xcaddy/releases | grep -E "browser_download_url.*linux_amd64" | cut -f4 -d\")"
 wget -O /root/xcaddy $URL && chmod +x /root/xcaddy
 /root/xcaddy build --with github.com/caddy-dns/cloudflare
